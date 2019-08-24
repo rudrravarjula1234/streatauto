@@ -117,8 +117,9 @@ if(!isset($_SESSION['user']) )
                                 <th>Sno</th>
                                 <th>Device Name</th>
                                 <th>Authentication Number</th>
-                                <th>No of Buttons</th>
-                                <th>No of Variables</th>
+                                <th>No of devices</th>
+                                <th>Watage</th>
+                                <th>info</th>
                                 <th>Modify names</th>
                               </tr>
                             </thead>
@@ -133,8 +134,9 @@ if(!isset($_SESSION['user']) )
                                 <td><?php echo $k++; ?></td>
                                 <td><?php echo $row['dvname']; ?></td>
                                 <td><?php echo $row['auth']; ?></td>
-                                <td><?php echo $row['butcount'] ?></td>
-                                <td><?php echo $row['varcount'] ?></td>
+                                <td><?php echo $row['nodevices'] ?></td>
+                                <td><?php echo $row['watage'] ?></td>
+                                <td><?php echo $row['info']?></td>
                                 <td><button class="open-homeEvents btn btn-primary" data-id="<?php echo $row['auth'] ?>" data-toggle="modal" data-target="#chnames">Modify</button></td>
                                 
                             </tr>

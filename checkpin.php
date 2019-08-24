@@ -107,10 +107,10 @@ if(!isset($_SESSION['user']) )
                     <div class="row">
                     <div id="load_content">
 						<?php
-							$query = mysqli_query($con,"SELECT `bnames` FROM `auth` WHERE auth='$a'");
+							$query = mysqli_query($con,"SELECT * FROM `auth` WHERE auth='$a'");
 							$query = mysqli_fetch_array($query);
 							$query = $query[0];
-							$quese = unserialize($query);
+							  
 						?>          
 						<h3>Modify Names</h3>
 						<h6 style="font-weight: 130; text-transform: capitalize;">Hear you can change names for bottons or variables </h6>          	

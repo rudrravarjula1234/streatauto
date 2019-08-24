@@ -33,10 +33,35 @@ $usdevicenames = unserialize($devicenames);
 <!DOCTYPE html>
 <html>
 <head>
-    
+    <style>
+        .projectdet{
+            display:flex;
+            flex-direction:column;
+            border:1px solid black;
+            width:100%;
+            height:230px;
+            border-radius:10px;
+            padding-bottom:15px;
+            margin:15px;
+            justify-content:space-between;
+            box-shadow: 5px 5px 15px 2px #7F7F7F ;
+        }
+        .projectdet:hover{    
+            box-shadow: 5px 5px 15px 10px #7F7F7F;
+        }
+        .maindiv{
+            display:flex;
+            flex-direction:row;
+        }
+        h2{
+            margin-top:8px;
+        }
+    </style>
 </head>
 <body>
-
+    <div class="container">
+    <div class="row">
+    
     <?php
         foreach ($usdevices as $key => $value) {
             $aserch = mysqli_query($con,"SELECT * from `auth` where auth='$value'") or die("Error");
@@ -57,9 +82,9 @@ $usdevicenames = unserialize($devicenames);
             
             $nobulbsactive = $nodevi - (($totwat - $varval)/$watas);
     ?>
-        <div class="projectdet">
+        <div class="projectdet col-sm-4 col-md-3 col-lg-3 col-xs-6" data-toggle="tooltip" data-placement="top" title="<?php echo $infoo; ?>">
             <div>
-                <h1><?php echo $dvname; ?></h1>
+                <h2><?php echo $dvname; ?></h2>
             </div>
             <div>
             <form method="POST" id="syncdata">
@@ -87,5 +112,13 @@ $usdevicenames = unserialize($devicenames);
     <?php
         }
     ?>
+    </div>
+    </div>
+
+    <script>
+$(document).ready(function(){
+  $('[data-toggle="tooltip"]').tooltip({delay:1000,animation: true}); 
+});
+</script>
 </body>
 </html>
